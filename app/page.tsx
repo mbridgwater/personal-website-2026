@@ -25,8 +25,8 @@ export default function Home() {
 						{portfolioData.name.split(' ').map(n => n[0]).join('')}
 					</div>
 					<nav className="flex items-center space-x-4">
-						<Link href="#projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link>
 						<Link href="#experience" className="text-gray-400 hover:text-white transition-colors">Experience</Link>
+						<Link href="#projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link>
 						<Link
 							href={`mailto:${portfolioData.email}`}
 							className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
@@ -92,18 +92,6 @@ export default function Home() {
 						</div>
 					</section>
 
-					{/* Projects Section */}
-					<section id="projects">
-						<h2 className="text-3xl font-bold text-white text-center">
-							Projects
-						</h2>
-						<div className="mt-8 grid md:grid-cols-2 gap-8">
-							{portfolioData.projects.map((project) => (
-								<ProjectCard key={project.title} project={project} />
-							))}
-						</div>
-					</section>
-
 					{/* Experience Section */}
 					<section id="experience">
 						<h2 className="text-3xl font-bold text-white text-center">
@@ -112,6 +100,18 @@ export default function Home() {
 						<div className="mt-8 space-y-10">
 							{portfolioData.experience.map((exp) => (
 								<ExperienceItem key={exp.company + exp.role} exp={exp} />
+							))}
+						</div>
+					</section>
+
+					{/* Projects Section */}
+					<section id="projects">
+						<h2 className="text-3xl font-bold text-white text-center">
+							Projects
+						</h2>
+						<div className="mt-8 grid md:grid-cols-2 gap-8">
+							{portfolioData.projects.map((project) => (
+								<ProjectCard key={project.title} project={project} />
 							))}
 						</div>
 					</section>
