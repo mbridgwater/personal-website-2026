@@ -2,7 +2,7 @@ import type { Portfolio } from "@/lib/types";
 
 const PORTFOLIO_DATA: Portfolio = {
 	name: "Missy Bridgwater",
-	headline: "Full-Stack Developer | Data Analyst | AI Enthusiast",
+	headline: "Software Developer | AI & Data Researcher",
 	bio: "A results-driven M.S. computer science student at UCLA with a passion for building disruptive, scalable, and user-centric applications. Eager to leverage modern technologies to solve real-world problems and drive impactful change. Currently seeking full time job opportunities for 2026.",
 
 	// Your contact email

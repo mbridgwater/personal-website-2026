@@ -1,6 +1,7 @@
 // import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Twitter, ExternalLink, Mail, Briefcase, Code, MapPin, Calendar, Award } from 'lucide-react';
+import Navbar from "@/components/Navbar";
 
 import portfolioData from '@/lib/config';
 import type { Education, Experience, Project } from '@/lib/types';
@@ -20,21 +21,7 @@ export default function Home() {
 			<div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
 
 				{/* Header/Nav */}
-				<header className="flex justify-between items-center py-6">
-					<div className="text-2xl font-bold text-white">
-						{portfolioData.name.split(' ').map(n => n[0]).join('')}
-					</div>
-					<nav className="flex items-center space-x-4">
-						<Link href="#experience" className="text-gray-400 hover:text-white transition-colors">Experience</Link>
-						<Link href="#projects" className="text-gray-400 hover:text-white transition-colors">Projects</Link>
-						<Link
-							href={`mailto:${portfolioData.email}`}
-							className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-						>
-							Contact Me
-						</Link>
-					</nav>
-				</header>
+				<Navbar />
 
 				<main className="space-y-20 mt-10">
 
@@ -92,30 +79,6 @@ export default function Home() {
 						</div>
 					</section>
 
-					{/* Experience Section */}
-					<section id="experience">
-						<h2 className="text-3xl font-bold text-white text-center">
-							Experience
-						</h2>
-						<div className="mt-8 space-y-10">
-							{portfolioData.experience.map((exp) => (
-								<ExperienceItem key={exp.company + exp.role} exp={exp} />
-							))}
-						</div>
-					</section>
-
-					{/* Projects Section */}
-					<section id="projects">
-						<h2 className="text-3xl font-bold text-white text-center">
-							Projects
-						</h2>
-						<div className="mt-8 grid md:grid-cols-2 gap-8">
-							{portfolioData.projects.map((project) => (
-								<ProjectCard key={project.title} project={project} />
-							))}
-						</div>
-					</section>
-
 					{/* Education Section */}
 					<section id="education">
 						<h2 className="text-3xl font-bold text-white text-center">
@@ -135,82 +98,6 @@ export default function Home() {
 					© {new Date().getFullYear()} {portfolioData.name}.
 					Built with React & Tailwind.
 				</footer>
-			</div>
-		</div>
-	);
-}
-
-// Sub-component for Project Cards
-function ProjectCard({ project }: { project: Project }) {
-	return (
-		<div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800 transition-all hover:shadow-blue-900/20 hover:border-gray-700">
-			<div className="p-6">
-				<h3 className="text-xl font-bold text-white">{project.title}</h3>
-				<p className="mt-3 text-gray-300 text-base">{project.description}</p>
-				<div className="mt-4 flex flex-wrap gap-2">
-					{project.stack.map((tech) => (
-						<span
-							key={tech}
-							className="bg-gray-800 text-blue-300 px-3 py-1 rounded-full text-xs font-medium"
-						>
-							{tech}
-						</span>
-					))}
-				</div>
-				<div className="mt-6 flex items-center space-x-4">
-					{project.githubLink && (
-						<Link
-							href={project.githubLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex items-center text-gray-400 hover:text-white transition-colors"
-						>
-							<Github className="w-5 h-5 mr-1" />
-							Code
-						</Link>
-					)}
-					{project.liveLink && (
-						<Link
-							href={project.liveLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex items-center text-gray-400 hover:text-white transition-colors"
-						>
-							<ExternalLink className="w-5 h-5 mr-1" />
-							Live Demo
-						</Link>
-					)}
-				</div>
-			</div>
-		</div>
-	);
-}
-
-// Sub-component for Experience Items
-function ExperienceItem({ exp }: { exp: Experience }) {
-	return (
-		<div className="flex">
-			<div className="shrink-0 mr-4">
-				<span className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-800 border border-gray-700">
-					<Briefcase className="w-5 h-5 text-blue-400" />
-				</span>
-			</div>
-			<div className="grow">
-				<h3 className="text-lg font-bold text-white">{exp.role}</h3>
-				<p className="text-blue-300 font-medium">{exp.company}</p>
-				<div className="flex flex-wrap text-sm text-gray-400 mt-1 space-x-4">
-					<span className="flex items-center">
-						<Calendar className="w-4 h-4 mr-1.5" />
-						{exp.date}
-					</span>
-					<span className="flex items-center">
-						<MapPin className="w-4 h-4 mr-1.5" />
-						{exp.location}
-					</span>
-				</div>
-				<p className="mt-3 text-gray-300">
-					{exp.description}
-				</p>
 			</div>
 		</div>
 	);
