@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import portfolioData from '@/lib/config';
 import type { Education, Experience, Project } from '@/lib/types';
 
-export default function Home() {
+export default function Experience() {
 	return (
 		<div className="font-geist-sans antialiased bg-gray-950 text-gray-200 min-h-screen">
 			<div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
@@ -18,13 +18,20 @@ export default function Home() {
 
 					{/* Experience Section */}
 					<section id="experience">
-						<h2 className="text-3xl font-bold text-white text-center">
+						<h2 className="text-4xl font-bold text-white text-center">
 							Experience
 						</h2>
-						<div className="mt-8 space-y-10">
+
+                        <p className="mt-2 text-center text-gray-400 text-lg max-w-2xl mx-auto">
+                            My journey through software engineering, data science, and research.
+                        </p>
+
+						<div className="mt-16 space-y-14">
 							{portfolioData.experience.map((exp) => (
-								<ExperienceItem key={exp.company + exp.role} exp={exp} />
-							))}
+								// <div className="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-gray-700 hover:shadow-lg hover:shadow-blue-900/10 transition-all duration-300">
+                                    <ExperienceItem key={exp.company + exp.role} exp={exp} />
+                                // </div>
+                            ))}
 						</div>
 					</section>
 

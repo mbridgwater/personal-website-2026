@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link
             key={link.href}
             href={link.href}
-            className={`text-sm font-medium transition-colors pb-1 border-b-2 ${
+            className={`text-base font-medium transition-colors pb-1 border-b-2 ${
                 isActive
                 ? "text-white border-blue-500"
                 : "text-gray-400 border-transparent hover:text-white hover:border-blue-500/50"
@@ -42,7 +42,7 @@ export default function Navbar() {
         })}
         <Link
           href={`mailto:${portfolioData.email}`}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          className="text-base bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
         >
           Contact Me
         </Link>
